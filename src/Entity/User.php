@@ -35,6 +35,14 @@ class User implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
+    private $plainPassword;
+
+    /**
+     * Нижеуказанная длина зависит от "алгоритма", который вы используете для шифрования
+     * пароля, но это также хорошо работает с bcrypt.
+     *
+     * @ORM\Column(type="string", length=64)
+     */
     private $password;
 
     /**
@@ -87,6 +95,17 @@ class User implements UserInterface
 
         return $this;
     }
+    
+    public function getPlainPassword()
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword($password)
+    {
+        $this->plainPassword = $password;
+    }
+
 
     /**
      * @see UserInterface
