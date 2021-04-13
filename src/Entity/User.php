@@ -35,15 +35,13 @@ class User implements UserInterface
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
-    private $plainPassword;
+    private $password;
 
     /**
-     * Нижеуказанная длина зависит от "алгоритма", который вы используете для шифрования
-     * пароля, но это также хорошо работает с bcrypt.
-     *
-     * @ORM\Column(type="string", length=64)
+     * @var string|null
+     * Plain password. Used for model validation. Must not be persisted.
      */
-    private $password;
+    private $plainPassword;
 
     /**
      * @ORM\Column(type="boolean")

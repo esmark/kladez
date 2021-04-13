@@ -28,6 +28,7 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('plainPassword', RepeatedType::class, [
+				'mapped' => false,
                 'type' => PasswordType::class,
                 'invalid_message' => 'Заполните поле Пароль и Повторите пароль',
                 'options' => ['attr' => ['class' => 'password-field']],
